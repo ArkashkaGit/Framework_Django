@@ -1,6 +1,7 @@
 # from django.shortcuts import render
 from django.http import HttpResponse
 import logging
+from myapp.models import Order, Client, Product
 
 logger = logging.getLogger(__name__)
 
@@ -19,15 +20,15 @@ def main(request):
 <br>
 2. установка Django
 - pip install django<br>
-- django-admin startproject blog<br>
-- cd blog<br>
-- python3 manage.py startapp blogapp</i><br>
+- django-admin startproject market<br>
+- cd market<br>
+- python3 manage.py startapp myapp</i><br>
 <br>
-3. Откройте файл settings.py в папке mysite/mysite и добавьте 'blogapp' в список установленных приложений:<br>
+3. Откройте файл settings.py и добавьте 'myapp' в список установленных приложений:<br>
 <br>
 INSTALLED_APPS = [ <br>
   ... <br>
-  'blogapp', <br>
+  'myapp', <br>
   ... <br>
 ]<br>
 
@@ -52,3 +53,8 @@ def about(request):
     '''
     logger.info("Visit page about")
     return HttpResponse(about_descryption)
+
+
+def all_orders(request):
+    order = Order.objects.all()
+    return HttpResponse(order)

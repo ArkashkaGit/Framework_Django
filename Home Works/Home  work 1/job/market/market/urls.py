@@ -1,5 +1,5 @@
 """
-URL configuration for blog project.
+URL configuration for market project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from blogapp import views as views_blogapp
+from myapp import views as views_myapp
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views_blogapp.hello_world),  # Таким образом вывел для себя
-    path("blogapp/", include('blogapp.urls'))
+    path("", views_myapp.hello_world),  # Таким образом вывел для себя
+    path("myapp/", include('myapp.urls'))
 ]
