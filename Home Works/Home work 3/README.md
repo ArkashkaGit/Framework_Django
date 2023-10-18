@@ -1,5 +1,5 @@
 # <b>Фреймворк Django
-# <i>Home work 2</b> (Работа с моделями)</i>
+# <i>Home work 3</b> (Работа с представлениями и шаблонами)</i>
 
 ![django.jpg](django.jpg)
 
