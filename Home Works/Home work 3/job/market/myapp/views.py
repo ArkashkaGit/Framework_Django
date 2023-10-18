@@ -77,6 +77,7 @@ def index_extend_base(request):
     return render(request, 'myapp/index.html')
 
 
+# вывод заказа по ID
 def order(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
     order_id = Order.objects.get(pk=order_id).pk
@@ -96,6 +97,7 @@ def order(request, order_id):
         })
 
 
+# Вывод списка заказов по ID-client, с переходом на содержимое заказа
 def client_orders(request, client_id):
     client = get_object_or_404(Client, pk=client_id)
     orders = Order.objects.filter(customer=client)
@@ -105,6 +107,7 @@ def client_orders(request, client_id):
     })
 
 
+# Вывод списка всех продуктов по ID-client
 def client_all_products(request, client_id):
     client = get_object_or_404(Client, pk=client_id)
     all_orders = Order.objects.filter(customer=client)
@@ -115,6 +118,7 @@ def client_all_products(request, client_id):
     })
 
 
+# сортировка заказов клиента за последние "count_day" дней
 def orders_order_by(request, client_id, count_day):
     client = get_object_or_404(Client, pk=client_id)
     all_orders = Order.objects.filter(customer=client)
